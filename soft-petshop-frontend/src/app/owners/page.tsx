@@ -1,10 +1,11 @@
 "use client";
 
-import { Avatar, Button, ThemeProvider} from "@mui/material";
+import { Avatar, Box, Button, ThemeProvider} from "@mui/material";
 import { useEffect, useState } from "react";
 import { FaTrash, FaPen } from "react-icons/fa";
 import { theme } from "../components/themes";
-import OwnerModal from "../components/modal";
+import OwnerModal from "../components/modals/createOwnerModal";
+import { DeleteModal } from "../components/modals/deleteModal";
 
 export default function Owners() {
   const [owners, setOwners] = useState([]);
@@ -25,24 +26,6 @@ export default function Owners() {
     }
   };
 
-  const deleteOwner = async (event: any, owner: any) => {
-    event.preventDefault()
-
-    try {
-        await fetch(`http://localhost:3001/owner/${owner.id}`, {
-          method: "DELETE",
-        })
-          .then((response) => response.json())
-          .then((data) => console.log(data));
-  
-    } catch (error) {
-        console.log(error);
-    }
-
-    fetchAllOwners();
-  };
-
-
   useEffect(() => {
     fetchAllOwners();
   }, []);
@@ -54,7 +37,7 @@ export default function Owners() {
 
         <OwnerModal />
 
-        <ul>
+        <Box>
           {owners.map((owner: any) => (
             <ul key={owner.id}>
               <li>
@@ -62,22 +45,22 @@ export default function Owners() {
               </li>
               <li>Name: {owner.name}</li>
               <li>
-                <Button startIcon={<FaPen />}>Edit</Button>
+                <Button
+                  startIcon={<FaPen />}
+                >
+                  Edit
+                </Button>
               </li>
               <li>
-                <Button 
-                    color="error" 
-                    startIcon={<FaTrash />}
-                    onClick={e => deleteOwner(e, owner)}
-                >
-                  Exluir
-                </Button>
+               <DeleteModal owner={owner} />  
               </li>
               <li>Contact: {owner.contact}</li>
             </ul>
           ))}
-        </ul>
+        </Box>
+
       </ThemeProvider>
+      
     </div>
   );
 }

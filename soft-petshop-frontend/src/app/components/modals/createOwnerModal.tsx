@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import {Alert, Box, Button, Modal, TextField, ThemeProvider, Typography} from '@mui/material';
-import { theme, modalStyle } from './themes';
+import {Box, Button, Modal, TextField, ThemeProvider, Typography} from '@mui/material';
+import { theme, modalStyle } from '../themes';
 
 export default function BasicModal() {
   const [open, setOpen] = useState(false);

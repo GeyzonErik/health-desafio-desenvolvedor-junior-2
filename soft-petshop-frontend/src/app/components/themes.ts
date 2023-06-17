@@ -5,12 +5,12 @@ export const theme = createTheme({
         primary: {
             light: "#8ed7c6",
             main: "#18c29c",
-            dark: "#084236"
+            dark: "#084236",
         },
         secondary: {
             main: "#dce4e3"
         }
-    }
+    },
 })
 
 export const modalStyle = {
