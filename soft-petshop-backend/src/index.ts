@@ -8,7 +8,7 @@ const animalModules = require('./animals/animals.controller')(app)
 import { swaggerDocument } from './swagger/swagger';
 const swaggerUi = require('swagger-ui-express');
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/',swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 ownerModules
 animalModules

@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    height: 100%;
+    width: 12vw;
+    padding-top: 1.8rem;
+    background: var(--green);
+    color: var(--text-color);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.listItem {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: 6px;
+    padding: 0.9rem;
+    font-weight: 500;
+}
+
+.listItem:hover {   
+    cursor: pointer;
+    background: var(--light-green);
+}
+
+.itemText {
+    margin-left: 1rem;
+}

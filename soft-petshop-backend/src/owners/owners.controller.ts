@@ -1,10 +1,13 @@
 import { PrismaClient } from '@prisma/client';
 import express from 'express';
 
+const cors = require('cors')
 const prisma = new PrismaClient();
 
 module.exports = function(app: any) {
-    app.use(express.json());
+    app.use(express.json(), cors({
+        origin: "http://localhost:3000"
+    }));
 
     app.get('/owners', async(req: any, res: any) => {
         const owners = await prisma.owner.findMany();

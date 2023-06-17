@@ -1,0 +1,50 @@
+:root {
+  --body-bg-color: #dce4e3;
+  --green: #18c29c;
+  --light-green: #8ed7c6;
+  --light-grey: #dce4e3;
+  --text-color: #084236;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inter;
+	vertical-align: baseline;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+main {
+	margin-left: 13vw;
+}
