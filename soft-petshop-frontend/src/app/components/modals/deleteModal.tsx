@@ -1,46 +1,32 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  Modal,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Modal, ThemeProvider, Typography } from "@mui/material";
 import { FaTrash } from "react-icons/fa";
 import { theme, modalStyle } from "../themes";
 
-export function DeleteModal({ owner }: any) {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+export function DeleteModal({ label, path }: any) {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-    const deleteOwner = async (event: any, owner: any) => {
-        event.preventDefault()
+  const deleteOwner = async (label: any) => {
+    try {
+      await fetch(`http://localhost:3001/${path}/${label.id}`, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    } catch (error) {
+      console.log(error);
+    }
 
-        try {
-            await fetch(`http://localhost:3001/owner/${owner.id}`, {
-              method: "DELETE",
-            })
-              .then((response) => response.json())
-              .then((data) => console.log(data));
-      
-        } catch (error) {
-            console.log(error);
-        }
-    
-        handleClose()
-        window.location.reload()
-    };
-    
+    handleClose();
+    window.location.reload();
+  };
 
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Button 
-            color="error"
-            startIcon={<FaTrash />}
-            onClick={handleOpen}
-        >
+        <Button color="error" startIcon={<FaTrash />} onClick={handleOpen}>
           Delete
         </Button>
         <Modal
@@ -57,23 +43,22 @@ export function DeleteModal({ owner }: any) {
               component="h2"
               sx={{ color: "primary.dark" }}
             >
-              You sure want to delete {owner.name}?
+              You sure want to delete {label.name}?
             </Typography>
-            <hr />
-            <Button 
-                variant="contained"
-                onClick={handleClose}
-            >
-              Cancel
-            </Button>
-
-            <Button
+            
+            <Box display={"flex"} justifyContent={"space-evenly"} marginTop={5}>
+              <Button variant="contained" onClick={handleClose}>
+                Cancel
+              </Button>
+  
+              <Button
                 color="error"
-                onClick={e => deleteOwner(e, owner)}
+                onClick={(e) => deleteOwner(label)}
                 variant="contained"
-            >
+              >
                 Delete
-            </Button>
+              </Button>
+            </Box>
           </Box>
         </Modal>
       </ThemeProvider>

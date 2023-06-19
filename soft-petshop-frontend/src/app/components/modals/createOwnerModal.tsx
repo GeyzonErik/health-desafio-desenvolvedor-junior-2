@@ -8,12 +8,11 @@ export default function BasicModal() {
   const handleClose = () => setOpen(false);
   
   const [ownerName, setOwnerName] = useState('')
-  const [ownerContact, setOwnerContact] = useState('')
-  const [newOwner, setNewOwner] = useState({})
+  const [ownerContact, setOwnerContact] = useState('' || Number)
 
   function handleOwnerName(event: any) {
     event.preventDefault();
-    let ownerName = event.target.value;
+    let ownerName = event.target.value
     setOwnerName(ownerName)
   }
 
@@ -24,6 +23,7 @@ export default function BasicModal() {
   }
 
   async function createNewOwner() {
+
     try {
         await fetch("http://localhost:3001/owners", {
         method: "POST",
@@ -36,7 +36,7 @@ export default function BasicModal() {
         }
         })
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => data)
 
     } catch(error) {
         console.log(error);
@@ -47,7 +47,7 @@ export default function BasicModal() {
   }
 
   return (
-    <div>
+    <Box margin={2}>
       <ThemeProvider theme={theme}>
         <Button color='primary' variant='contained' onClick={handleOpen}>Create a new Owner</Button>
         <Modal
@@ -57,31 +57,36 @@ export default function BasicModal() {
             aria-describedby="modal-modal-description"
         >
             <Box sx={modalStyle}>
-            <Typography  id="modal-modal-title" variant="h6" component="h2" sx={{color: "primary.dark"}}>
-                Create a new Owner
-            </Typography>
+              <Typography  id="modal-modal-title" variant="h6" component="h2" sx={{color: "primary.dark"}}>
+                  Create a new Owner
+              </Typography>
 
-            <TextField
-                id="outlined-multiline-flexible"
-                label="Owner Name"
-                multiline
-                maxRows={4}
-                onChange={e => handleOwnerName(e)}
-            />
+              <Box display={"flex"} justifyContent={"space-around"} margin={3}>
+                <TextField
+                    id="create-owner-name"
+                    label="Owner Name"
+                    type='text'
+                    required
+                    onChange={e => handleOwnerName(e)}
+                />
 
-            <TextField
-                id="outlined-multiline-flexible"
-                label="Owner Number"
-                inputProps={{ maxLength: 11 }}
-                onChange={e => handleOwnerContact(e)}
-            />
-            <hr />
-            <Button sx={{color: "primary.light"}} onClick={handleClose}>Cancel</Button>
-            <Button sx={{color: "primary.dark"}} onClick={createNewOwner}>Create</Button>
+                <TextField
+                    id="create-owner-contact"
+                    label="Owner Number"
+                    required
+                    inputProps={{ maxLength: 11}}
+                    onChange={e => handleOwnerContact(e)}
+                />
+              </Box>
+              
+              <Box display={"flex"} justifyContent={"space-evenly"}>
+                <Button color='error' onClick={handleClose}>Cancel</Button>
+                <Button type='submit' sx={{color: "secondary.main"}} variant='contained' onClick={createNewOwner}>Create</Button>
+              </Box>
             </Box>
         </Modal>
       </ThemeProvider>
-    </div>
+    </Box>
   );
 }
 

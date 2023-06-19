@@ -35,10 +35,6 @@ export const updateAnimal = {
               type: "string",
               example: "N/A",
             },
-            ownerId: {
-              type: "integer",
-              example: 4,
-            },
           },
         },
       },
