@@ -29,7 +29,7 @@ export default function Home() {
             </ListSubheader>
             
             {texts.map(text => (
-              <ListItem>
+              <ListItem key={Math.random() * 50}>
                 <ListItemAvatar>
                   <Avatar sx={{ bgcolor: 'red' }}>
                     <FaPaw />
@@ -47,7 +47,7 @@ export default function Home() {
             <ListSubheader>
               You can send me your impressions by:
             </ListSubheader>
-            <ListItem>
+            <ListItem key={1}>
               <ListItemAvatar>
                 <Link href="https://www.linkedin.com/in/geyzoncosta/" target="_blank">
                   <Avatar sx={{ bgcolor: 'primary.main' }}>
