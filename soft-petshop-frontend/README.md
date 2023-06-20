@@ -27,7 +27,7 @@ Some of the functionalites are:
 ## Getting Started
 
 ### First of all
-- You'll need have NodeJs instaled in your machine, such as Git.
+- You'll need have [NodeJs](https://nodejs.dev) instaled in your machine, such as [Git](https://git-scm.com/).
 - And you'll need use an code editor for a better code management. My recomedation: [VSCode](https://code.visualstudio.com/)
 
 ### Starting the project
