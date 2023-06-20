@@ -1,5 +1,33 @@
  ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
+Este é a resolução do desafio [tecnico](#desafio) para a SoftMakers
+
+Lista de todas as tecnologias utilizadas:
+
+- [React](https://pt-br.reactjs.org)
+- [Next](https://nextjs.org/)
+- [MaterialUi](https://mui.com/)
+- [ReactIcons](https://react-icons.github.io/react-icons/)
+- [Node](https://nodejs.dev)
+- [ExpressJs](https://expressjs.com/)
+- [Swagger](https://swagger.io/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+Para rodar o projeto é necessario o seguimento do passo a passo descrito separadamente em cada pasta do projeto.
+
+Passo a passo FrontEnd: [soft-petshop-frontend](https://github.com/GeyzonErik/health-desafio-desenvolvedor-junior-2/tree/main/soft-petshop-frontend)
+
+Passo a passo BackEnd: [soft-petshop-backend](https://github.com/GeyzonErik/health-desafio-desenvolvedor-junior-2/tree/main/soft-petshop-backend)
+
+Pode-se ver um preview da aplicação em funcionamento logo a baixo:
+
+[FrontEnd ShowCase](https://www.youtube.com/watch?v=e-N6vZC-Tvk)  
+[BackEnd ShowCase](https://www.youtube.com/watch?v=G1rKnux_1Cg)
+
+_____________________________
+
+<a name="desafio"/>
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
 Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
 
